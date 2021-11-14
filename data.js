@@ -10,13 +10,31 @@ const getLatest = async (type) => {
 };
 
 const getRandom = async (type) => {
+  let container = document.querySelector(".container");
   const max_number = await getLatest(type);
-  const random_number = generateRandomNumber(0, max_number);
-  const response = await fetch(
+  let random_number = generateRandomNumber(0, max_number);
+  let response = await fetch(
     `https://api.themoviedb.org/3/${type}/${random_number}?api_key=${key}&language=en-US`
   );
+  if (response.status !== 200) {
+    while (response.status !== 200) {
+      random_number = generateRandomNumber(0, max_number);
+      response = await fetch(
+        `https://api.themoviedb.org/3/${type}/${random_number}?api_key=${key}&language=en-US`
+      );
+    }
+  }
   const data = await response.json();
   console.log(data);
+  if (data.poster_path !== null) {
+    let img = document.createElement("img");
+    img.src = `https://image.tmdb.org/t/p/w500/${data.poster_path}`;
+    container.appendChild(img);
+  } else {
+    let text = document.createElement("h2");
+    text.textContent = "No hay foto para esta peli/serie";
+    container.appendChild(text);
+  }
 };
 
 const generateRandomNumber = (min, max) =>
