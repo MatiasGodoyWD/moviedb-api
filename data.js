@@ -5,18 +5,25 @@ const generateRandomNumber = (min, max) =>
 
 const getRandomMovie = async () => {
   try {
-    let pageNumber = generateRandomNumber(1, 10);
+    let pageNumber = generateRandomNumber(1, 8);
     let movieIndex = generateRandomNumber(0, 19);
-
     const response = await fetch(
       `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=es-ES&page=${pageNumber}`
     );
     const data = await response.json();
-    console.log(data);
     return data.results[movieIndex];
   } catch (e) {
     console.warn(e);
   }
 };
 
-export { getRandomMovie };
+const getMovieCredits = async (movieId) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${key}&language=en-US`
+  );
+
+  const data = await response.json();
+
+  return data;
+};
+export { getRandomMovie, getMovieCredits };

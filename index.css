@@ -7,10 +7,18 @@
 }
 
 body {
-  width: 100%;
+  font-family: "Roboto", sans-serif;
+  background-color: #e7e7e7;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='16' viewBox='0 0 12 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 .99C4 .445 4.444 0 5 0c.552 0 1 .45 1 .99v4.02C6 5.555 5.556 6 5 6c-.552 0-1-.45-1-.99V.99zm6 8c0-.546.444-.99 1-.99.552 0 1 .45 1 .99v4.02c0 .546-.444.99-1 .99-.552 0-1-.45-1-.99V8.99z' fill='%23ffffff' fill-opacity='0.47' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+.main-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  height: 100vh;
+  background-color: #e7e7e7;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='16' viewBox='0 0 12 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 .99C4 .445 4.444 0 5 0c.552 0 1 .45 1 .99v4.02C6 5.555 5.556 6 5 6c-.552 0-1-.45-1-.99V.99zm6 8c0-.546.444-.99 1-.99.552 0 1 .45 1 .99v4.02c0 .546-.444.99-1 .99-.552 0-1-.45-1-.99V8.99z' fill='%23ffffff' fill-opacity='0.47' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 .container {
@@ -18,12 +26,66 @@ body {
   justify-content: space-around;
   align-items: center;
   width: 90%;
+  /* border: 0.1rem solid blueviolet; */
+  border-radius: 1.3rem;
+  height: 80%;
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.082);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .movie__info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  width: 70%;
+  min-height: 60%;
+  max-height: 80%;
+}
+
+button {
   width: 50%;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  border: 0px solid black;
+  background-color: black;
+  color: white;
+  margin-top: 2rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button:hover {
+  background-color: rgb(216, 216, 216);
+  transition: all 0.3 ease-in;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: black;
+}
+
+.poster__img {
+  border-radius: 1rem;
+  /* border: 1px solid black; */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.vote__average,
+.release__date {
+  font-size: 1.2rem;
+}
+
+.overview-title {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.subtitulo {
+  color: red;
+  font-weight: 500;
 }
